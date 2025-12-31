@@ -1,40 +1,78 @@
-Preview:
-<img width="1802" height="898" alt="image" src="https://github.com/user-attachments/assets/4374fa67-68ad-46c3-9ac3-ac7c91b6c4e2" />
+# 🥷 devsinbandana
 
+> **100 Days. No Cap.**
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a public proof-of-work run.
 
-## Getting Started
+No excuses.  
+No perfection.  
+No talking without shipping.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧠 The Mission
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I show up.  
+I code.  
+I push.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+That’s it.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Some days are clean.  
+Some days are messy.  
+Some days are small wins.  
+Some days are straight grind.
 
-## Learn More
+But the chain doesn’t break.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧩 What Does This Represents
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Consistency over comfort.  
+Execution over ideas.  
+Proof over promises.
 
-## Deploy on Vercel
+Not here to impress.  
+Here to **put the work on record**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🕶️ dev in a bandana
+
+Anonymous by choice.  
+Focused by habit.  
+Building in public.
+
+No flex.  
+No filters.  
+Just commits.
+
+---
+
+## 🌐 Home Base
+
+👉 https://devsinbandana-pf.vercel.app/
+
+---
+
+## 🤝 Links
+
+- Instagram: **@devsinbandana**
+
+---
+
+## 🏁 Final Word
+
+This is not motivation content.  
+This is not a tutorial repo.
+
+This is a **streak**.
+
+If you’re here early, you’ll see the growth.  
+If you’re here later, you’ll see the receipts.
+
+Day by day.  
+Brick by brick.
+
+See you on the graph.
