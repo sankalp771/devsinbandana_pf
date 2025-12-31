@@ -16,9 +16,9 @@ export default function Home() {
 
       <div className="z-10 mt-12 p-1 border border-street-gray/20 bg-asphalt/50 backdrop-blur-sm">
         <div className="text-xs font-mono text-spray-cyan p-2">
-           > SYSTEM.INIT()...<br />
-           > CONNECTING TO UNDERGROUND...<br />
-           > LOADING ASSETS...
+          &gt; SYSTEM.INIT()...<br />
+          &gt; CONNECTING TO UNDERGROUND...<br />
+          &gt; LOADING ASSETS...
         </div>
       </div>
     </main>
