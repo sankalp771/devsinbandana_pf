@@ -15,7 +15,7 @@ export function DailyDrop() {
                         THE DROP
                     </h2>
                     <span className="font-mono text-neon-green mb-1 text-sm">
-             // DAILY_LOG_LEDGER
+                        {"// DAILY_LOG_LEDGER"}
                     </span>
                 </div>
 
