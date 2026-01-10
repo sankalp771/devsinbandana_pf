@@ -98,7 +98,7 @@ export function HeroSection() {
                             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
                             className="absolute -bottom-6 -right-6 bg-asphalt border-2 border-neon-green p-4 rotate-[-6deg] shadow-[4px_4px_0px_var(--color-neon-green)]"
                         >
-                            <div className="font-glitch text-2xl text-white">DAY 1</div>
+                            <div className="font-glitch text-2xl text-white">DAY {Math.ceil((new Date().getTime() - new Date('2026-01-01').getTime()) / (1000 * 60 * 60 * 24)) + 1}</div>
                         </motion.div>
                     </div>
                 </motion.div>

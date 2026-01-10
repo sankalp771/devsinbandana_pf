@@ -1,0 +1,83 @@
+export interface DailyDrop {
+    day: number;
+    date: string;
+    topic: string;
+    description: string;
+    stack: string[]; // e.g., ["Next.js", "Tailwind"]
+    commit: string; // e.g., "init: street-code-chronicles"
+}
+
+export const drops: DailyDrop[] = [
+    {
+        day: 1,
+        date: "2026-01-01",
+        topic: "Portfolio Initialization",
+        description: "Kicked off the 100 Days of Code challenge. Built the 'Street Code Chronicles' portfolio with the 'Bandana Coder' aesthetic using Next.js 15 and Tailwind v4.",
+        stack: ["Next.js", "TailwindCSS", "Framer Motion"],
+        commit: "init: street-code-chronicles project setup"
+    },
+    {
+        day: 2,
+        date: "2026-01-02",
+        topic: "MediPilot Authentication",
+        description: "Integrated Clerk for secure user authentication in MediPilot. Set up Supabase with Prisma ORM to handle patient data and prescriptions.",
+        stack: ["Clerk", "Supabase", "Prisma"],
+        commit: "feat: auth setup and database schema init"
+    },
+    {
+        day: 3,
+        date: "2026-01-03",
+        topic: "Virus Eater Lab: Dual Mode",
+        description: "Implemented Dual-Mode architecture (Simulation vs On-chain). Deployed the first smart contract on Base Sepolia, though payment integration is still WIP.",
+        stack: ["Base Sepolia", "Solidity", "Next.js"],
+        commit: "feat: dual mode engine and initial contract deploy"
+    },
+    {
+        day: 4,
+        date: "2026-01-04",
+        topic: "MediPilot History & Schema",
+        description: "Added History Report features to track past uploads. Built robust API routes and finalized the Prisma Schema for medical records.",
+        stack: ["Prisma", "API Routes", "PostgreSQL"],
+        commit: "backend: history routes and schema finalization"
+    },
+    {
+        day: 5,
+        date: "2026-01-05",
+        topic: "MediPilot UI & Error Handling",
+        description: "Refined the UI with 'Medical Emerald' components. Implemented comprehensive error handling for the report generation pipeline.",
+        stack: ["React", "UI Components", "Error Boundary"],
+        commit: "ui: report components and global error handling"
+    },
+    {
+        day: 6,
+        date: "2026-01-06",
+        topic: "MediPilot File Uploads",
+        description: "Polished the History Page and built a drag-and-drop File Upload component for processing PDF lab reports.",
+        stack: ["React Dropzone", "TailwindCSS"],
+        commit: "feat: file upload logic and history ui update"
+    },
+    {
+        day: 7,
+        date: "2026-01-07",
+        topic: "Virus Lab Payment Fixed",
+        description: "Migrated Virus Lab to Bun for speed. Replaced WalletConnect with MetaMask (wagmi), finally fixing the payment/transaction flow.",
+        stack: ["Bun", "Wagmi", "MetaMask"],
+        commit: "fix: payment flow and migration to bun"
+    },
+    {
+        day: 8,
+        date: "2026-01-08",
+        topic: "Virus Lab Optimization",
+        description: "Code cleanup and optimization. Updated the README and refactored the codebase for better maintainability.",
+        stack: ["Refactoring", "Documentation"],
+        commit: "refactor: code cleanup and readme update"
+    },
+    {
+        day: 9,
+        date: "2026-01-09",
+        topic: "Virus Lab Contract Upgrades",
+        description: "Enhanced Smart Contract: added 'Exit Game', 'Claim Rewards', and better 'Recall' mechanics. Added new visual effects for battle scenes.",
+        stack: ["Solidity", "Smart Contracts", "VFX"],
+        commit: "smart-contract: recall logic and visual effects"
+    }
+];
