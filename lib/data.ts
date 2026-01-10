@@ -79,5 +79,13 @@ export const drops: DailyDrop[] = [
         description: "Enhanced Smart Contract: added 'Exit Game', 'Claim Rewards', and better 'Recall' mechanics. Added new visual effects for battle scenes.",
         stack: ["Solidity", "Smart Contracts", "VFX"],
         commit: "smart-contract: recall logic and visual effects"
+    },
+    {
+        day: 10,
+        date: "2026-01-10",
+        topic: "The Daily Drop Ledger",
+        description: "Implemented the 'Daily Drop' section to track the 100-day journey. Added the dynamic 'Day X' counter to the Hero section effectively automating the streak tracking.",
+        stack: ["Next.js", "React", "Framer Motion"],
+        commit: "feat: daily drop ledger and dynamic day counter"
     }
 ];
