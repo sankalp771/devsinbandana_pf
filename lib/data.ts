@@ -87,5 +87,13 @@ export const drops: DailyDrop[] = [
         description: "Implemented the 'Daily Drop' section to track the 100-day journey. Added the dynamic 'Day X' counter to the Hero section effectively automating the streak tracking.",
         stack: ["Next.js", "React", "Framer Motion"],
         commit: "feat: daily drop ledger and dynamic day counter"
+    },
+    {
+        day: 11,
+        date: "2026-01-11",
+        topic: "MediPilot Deployment & Polish",
+        description: "Finalized MediPilot with a secure Next.js + AI integration. Polished the UI with custom branding, set up 'Report History', and fixed Prisma/Vercel deployment issues.",
+        stack: ["Vercel", "Prisma", "AI Integration"],
+        commit: "deploy: medipilot production build and ui polish"
     }
 ];
