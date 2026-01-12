@@ -95,5 +95,21 @@ export const drops: DailyDrop[] = [
         description: "Finalized MediPilot with a secure Next.js + AI integration. Polished the UI with custom branding, set up 'Report History', and fixed Prisma/Vercel deployment issues.",
         stack: ["Vercel", "Prisma", "AI Integration"],
         commit: "deploy: medipilot production build and ui polish"
+    },
+    {
+        day: 12,
+        date: "2026-01-12",
+        topic: "Chat First Transformation",
+        description: "Refactored MediPilot to be 'Chat-First'. Replaced the dashboard with a dynamic Chat UI and implemented a collapsible 'Evidence Drawer' for medical context. Fixed history navigation bugs.",
+        stack: ["Next.js", "React", "API Routes"],
+        commit: "refactor: chat-first ux and history navigation fixes"
+    },
+    {
+        day: 13,
+        date: "2026-01-13",
+        topic: "AI Brain Upgrade & PDF Super-Vision",
+        description: "Upgraded the AI engine to inject patient history for context-aware answers. Solved PDF parsing issues with a Hybrid Text+Vision engine, ensuring even complex reports are read accurately.",
+        stack: ["Mistral AI", "PDF.js", "RAG"],
+        commit: "feat: context injection and hybrid pdf processing"
     }
 ];
