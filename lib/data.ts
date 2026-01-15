@@ -111,5 +111,21 @@ export const drops: DailyDrop[] = [
         description: "Upgraded the AI engine to inject patient history for context-aware answers. Solved PDF parsing issues with a Hybrid Text+Vision engine, ensuring even complex reports are read accurately.",
         stack: ["Mistral AI", "PDF.js", "RAG"],
         commit: "feat: context injection and hybrid pdf processing"
+    },
+    {
+        day: 14,
+        date: "2026-01-14",
+        topic: "Core Architecture & Intelligence",
+        description: "Migrated DB schema for 'Always-On Chat' (decoupling chat from reports). Upgraded Intake Intelligence to extract structured HealthMetrics for Trend Analysis long-term memory.",
+        stack: ["PostgreSQL", "Prisma", "Data Modeling"],
+        commit: "backend: schema migration and health metrics engine"
+    },
+    {
+        day: 15,
+        date: "2026-01-15",
+        topic: "UX Polish & Critical Stability",
+        description: "Refined UX with a 'Global Health' dashboard, solving the empty state issue. Fixed critical race conditions in chat sessions and hardened the CarePlanViewer against crashes.",
+        stack: ["React", "UX Hardening", "Bug Fixes"],
+        commit: "fix: race conditions and global dashboard ux"
     }
 ];
