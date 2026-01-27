@@ -1,11 +1,51 @@
 "use client";
 
-import { drops } from "@/lib/data";
+import { drops as fallbackDrops } from "@/lib/data";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export function DailyDrop() {
-    // Sort drops by day descending (newest first)
-    const sortedDrops = [...drops].sort((a, b) => b.day - a.day);
+    const [dbDrops, setDbDrops] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchDrops() {
+            try {
+                const res = await fetch('/api/drops');
+                if (!res.ok) throw new Error(`HTTP_${res.status}`);
+
+                const contentType = res.headers.get("content-type");
+                if (!contentType || !contentType.includes("application/json")) {
+                    throw new Error("NOT_JSON_RESPONSE");
+                }
+
+                const data = await res.json();
+
+                if (data && Array.isArray(data)) {
+                    setDbDrops(data.map((d: any) => ({
+                        ...d,
+                        commit: d.commitMsg || d.commit_msg // Support both field names
+                    })));
+                }
+            } catch (err) {
+                console.error("Fetch error:", err);
+                // Fallback is handled by the displayDrops logic automatically
+            }
+            setLoading(false);
+        }
+        fetchDrops();
+    }, []);
+
+    const displayDrops = dbDrops.length > 0 ? dbDrops : fallbackDrops.sort((a, b) => b.day - a.day);
+
+    if (loading) {
+        return (
+            <div className="bg-asphalt py-20 px-6 text-center font-mono text-neon-green animate-pulse">
+                &gt; SYNCING_WITH_LEDGER...
+            </div>
+        );
+    }
 
     return (
         <section className="bg-asphalt py-20 px-6 md:px-12 border-t border-street-gray/10">
@@ -20,7 +60,7 @@ export function DailyDrop() {
                 </div>
 
                 <div className="space-y-8">
-                    {sortedDrops.map((drop, index) => (
+                    {displayDrops.map((drop: any, index: number) => (
                         <motion.div
                             key={drop.day}
                             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +70,7 @@ export function DailyDrop() {
                             className="relative group"
                         >
                             {/* Connector Line */}
-                            {index !== sortedDrops.length - 1 && (
+                            {index !== displayDrops.length - 1 && (
                                 <div className="absolute left-[27px] top-16 bottom-[-32px] w-[2px] bg-street-gray/20 group-hover:bg-spray-pink/50 transition-colors" />
                             )}
 
@@ -59,7 +99,7 @@ export function DailyDrop() {
 
                                     <div className="flex flex-wrap items-center gap-3 mt-4 pt-4 border-t border-street-gray/10">
                                         <div className="flex gap-2">
-                                            {drop.stack.map((tech) => (
+                                            {drop.stack.map((tech: string) => (
                                                 <span key={tech} className="text-[10px] uppercase font-bold text-asphalt bg-neon-green px-2 py-[2px] rounded-sm">
                                                     {tech}
                                                 </span>
