@@ -11,9 +11,10 @@ export async function GET() {
             }
         });
         return NextResponse.json(drops);
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("CRITICAL API ERROR /api/drops (GET):", error);
-        return NextResponse.json({ error: "FAILED_TO_FETCH_DROPS", details: error.message }, { status: 500 });
+        const errorMessage = error instanceof Error ? error.message : "Internal Server Error";
+        return NextResponse.json({ error: "FAILED_TO_FETCH_DROPS", details: errorMessage }, { status: 500 });
     }
 }
 
@@ -37,8 +38,9 @@ export async function POST(req: Request) {
         });
 
         return NextResponse.json(newDrop);
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("CRITICAL API ERROR /api/drops (POST):", error);
-        return NextResponse.json({ error: "FAILED_TO_SAVE_DROP", details: error.message }, { status: 500 });
+        const errorMessage = error instanceof Error ? error.message : "Internal Server Error";
+        return NextResponse.json({ error: "FAILED_TO_SAVE_DROP", details: errorMessage }, { status: 500 });
     }
 }

@@ -10,12 +10,13 @@ export async function GET() {
             database: "CONNECTED",
             timestamp: new Date().toISOString()
         });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("DB_PING_ERROR:", error);
+        const errorMessage = error instanceof Error ? error.message : "Internal Server Error";
         return NextResponse.json({
             status: "ERROR",
             database: "DISCONNECTED",
-            error: error.message
+            error: errorMessage
         }, { status: 500 });
     }
 }

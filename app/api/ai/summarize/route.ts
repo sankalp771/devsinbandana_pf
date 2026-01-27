@@ -35,8 +35,9 @@ export async function POST(req: Request) {
         const summary = data.choices?.[0]?.message?.content || "No summary generated";
 
         return NextResponse.json({ summary });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Summarize API Error:", error);
-        return NextResponse.json({ error: error.message || "FAILED_TO_PROCESS_DROP" }, { status: 500 });
+        const errorMessage = error instanceof Error ? error.message : "FAILED_TO_PROCESS_DROP";
+        return NextResponse.json({ error: errorMessage }, { status: 500 });
     }
 }

@@ -3,10 +3,20 @@
 import { drops as fallbackDrops } from "@/lib/data";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+
+interface Drop {
+    day: number;
+    topic: string;
+    description: string;
+    stack: string[];
+    date: string;
+    commit: string;
+    commitMsg?: string;
+    commit_msg?: string;
+}
 
 export function DailyDrop() {
-    const [dbDrops, setDbDrops] = useState<any[]>([]);
+    const [dbDrops, setDbDrops] = useState<Drop[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -23,10 +33,10 @@ export function DailyDrop() {
                 const data = await res.json();
 
                 if (data && Array.isArray(data)) {
-                    setDbDrops(data.map((d: any) => ({
-                        ...d,
-                        commit: d.commitMsg || d.commit_msg // Support both field names
-                    })));
+                    setDbDrops(data.map((d: Record<string, unknown>) => ({
+                        ...(d as unknown as Drop),
+                        commit: (d.commitMsg as string) || (d.commit_msg as string) || "initial_commit"
+                    } as Drop)));
                 }
             } catch (err) {
                 console.error("Fetch error:", err);
@@ -37,7 +47,7 @@ export function DailyDrop() {
         fetchDrops();
     }, []);
 
-    const displayDrops = dbDrops.length > 0 ? dbDrops : fallbackDrops.sort((a, b) => b.day - a.day);
+    const displayDrops = dbDrops.length > 0 ? dbDrops : (fallbackDrops as unknown as Drop[]).sort((a, b) => b.day - a.day);
 
     if (loading) {
         return (
@@ -60,7 +70,7 @@ export function DailyDrop() {
                 </div>
 
                 <div className="space-y-8">
-                    {displayDrops.map((drop: any, index: number) => (
+                    {displayDrops.map((drop, index) => (
                         <motion.div
                             key={drop.day}
                             initial={{ opacity: 0, y: 20 }}
@@ -99,7 +109,7 @@ export function DailyDrop() {
 
                                     <div className="flex flex-wrap items-center gap-3 mt-4 pt-4 border-t border-street-gray/10">
                                         <div className="flex gap-2">
-                                            {drop.stack.map((tech: string) => (
+                                            {drop.stack.map((tech) => (
                                                 <span key={tech} className="text-[10px] uppercase font-bold text-asphalt bg-neon-green px-2 py-[2px] rounded-sm">
                                                     {tech}
                                                 </span>

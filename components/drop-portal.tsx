@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, Plus, Code, Send, Check, ShieldAlert } from "lucide-react";
+import { X, Calendar, Code, Send, ShieldAlert } from "lucide-react";
 
 interface DropPortalProps {
     isOpen: boolean;
@@ -12,7 +12,6 @@ interface DropPortalProps {
 
 export function DropPortal({ isOpen, onClose, onSuccess }: DropPortalProps) {
     const [loading, setLoading] = useState(false);
-    const [preview, setPreview] = useState(false);
     const [formData, setFormData] = useState({
         day: Math.floor((new Date().getTime() - new Date('2026-01-01').getTime()) / (1000 * 60 * 60 * 24)) + 1,
         date: new Date().toISOString().split('T')[0],
@@ -77,7 +76,7 @@ export function DropPortal({ isOpen, onClose, onSuccess }: DropPortalProps) {
                         <div className="mb-6 flex justify-between items-end gap-4">
                             <div>
                                 <h2 className="text-3xl font-glitch text-white">MANUAL_LEDGER_ENTRY</h2>
-                                <p className="text-xs font-mono text-neon-green mt-1">// OVERRIDE_IN_PROGRESS</p>
+                                <p className="text-xs font-mono text-neon-green mt-1">{"// OVERRIDE_IN_PROGRESS"}</p>
                             </div>
                             <div className="flex flex-col items-end">
                                 <label className="text-[10px] text-street-gray uppercase mb-1">Entry_Day</label>
@@ -182,7 +181,7 @@ export function DropPortal({ isOpen, onClose, onSuccess }: DropPortalProps) {
                                 </div>
                                 <div className="mt-8 p-4 border border-spray-cyan/30 text-spray-cyan text-[10px] font-mono leading-tight">
                                     <ShieldAlert size={14} className="mb-2" />
-                                    CONFIRM EVERYTHING. ONCE YOU CLICK 'AUTHORIZE', IT’S STORED PERMANENTLY IN THE UNDERGROUND LEDGER.
+                                    CONFIRM EVERYTHING. ONCE YOU CLICK &apos;AUTHORIZE&apos;, IT&apos;S STORED PERMANENTLY IN THE UNDERGROUND LEDGER.
                                 </div>
                             </div>
                         </div>
@@ -192,3 +191,4 @@ export function DropPortal({ isOpen, onClose, onSuccess }: DropPortalProps) {
         </AnimatePresence>
     );
 }
+
