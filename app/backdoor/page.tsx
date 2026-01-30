@@ -1,15 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { GlitchText } from "@/components/ui/glitch-text";
-import { Terminal as TerminalIcon, ShieldAlert, Zap, Save, PlusSquare } from "lucide-react";
+import { Terminal as TerminalIcon } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { DropPortal } from "@/components/drop-portal";
 
 export default function Backdoor() {
     const [input, setInput] = useState("");
     const [isPortalOpen, setIsPortalOpen] = useState(false);
+    const [pendingSummary, setPendingSummary] = useState<string | null>(null);
     const [logs, setLogs] = useState<string[]>([
         "CONNECTED TO THE_STREET_NETWORK...",
         "ACCESS GRANTED... AUTH_LEVEL: MASTER_CHRONICLER",
@@ -76,15 +75,14 @@ export default function Backdoor() {
                     addLog("AI_SUMMARY:");
                     addLog(summary);
                     addLog("TYPE 'save' TO DROP THIS TO THE LEDGER.");
-                    (window as any).pendingSummary = summary;
+                    setPendingSummary(summary);
                 }
-            } catch (e) {
+            } catch {
                 addLog("ERR: NETWORK_FAILURE");
             }
             setIsTyping(false);
         } else if (cmd === "save") {
-            const summary = (window as any).pendingSummary;
-            if (!summary) {
+            if (!pendingSummary) {
                 addLog("ERR: NO_PENDING_SUMMARY");
                 return;
             }
@@ -94,14 +92,14 @@ export default function Backdoor() {
                     method: "POST",
                     body: JSON.stringify({
                         topic: "Daily Grind Update",
-                        description: summary,
+                        description: pendingSummary,
                         stack: ["AI", "Prisma", "Next.js"],
                         commitMsg: "feat: automated street drop"
                     })
                 });
                 if (res.ok) addLog("SUCCESS: DROP_LOCKED_IN_DB");
                 else addLog("ERR: SAVE_FAILED");
-            } catch (e) {
+            } catch {
                 addLog("ERR: DB_OFFLINE");
             }
         } else {
