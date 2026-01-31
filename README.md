@@ -1,6 +1,7 @@
 # 🥷 devsinbandana
 
 > **100 Days. No Cap.**
+we're 31/100 nowe
 
 This is a public proof-of-work run.
 
