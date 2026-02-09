@@ -1,62 +1,9 @@
 "use client";
 
-import { drops as fallbackDrops } from "@/lib/data";
+import { drops as displayDrops } from "@/lib/data";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
-interface Drop {
-    day: number;
-    topic: string;
-    description: string;
-    stack: string[];
-    date: string;
-    commit: string;
-    commitMsg?: string;
-    commit_msg?: string;
-}
 
 export function DailyDrop() {
-    const [dbDrops, setDbDrops] = useState<Drop[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function fetchDrops() {
-            try {
-                const res = await fetch('/api/drops');
-                if (!res.ok) throw new Error(`HTTP_${res.status}`);
-
-                const contentType = res.headers.get("content-type");
-                if (!contentType || !contentType.includes("application/json")) {
-                    throw new Error("NOT_JSON_RESPONSE");
-                }
-
-                const data = await res.json();
-
-                if (data && Array.isArray(data)) {
-                    setDbDrops(data.map((d: Record<string, unknown>) => ({
-                        ...(d as unknown as Drop),
-                        commit: (d.commitMsg as string) || (d.commit_msg as string) || "initial_commit"
-                    } as Drop)));
-                }
-            } catch (err) {
-                console.error("Fetch error:", err);
-                // Fallback is handled by the displayDrops logic automatically
-            }
-            setLoading(false);
-        }
-        fetchDrops();
-    }, []);
-
-    const displayDrops = dbDrops.length > 0 ? dbDrops : (fallbackDrops as unknown as Drop[]).sort((a, b) => b.day - a.day);
-
-    if (loading) {
-        return (
-            <div className="bg-asphalt py-20 px-6 text-center font-mono text-neon-green animate-pulse">
-                &gt; SYNCING_WITH_LEDGER...
-            </div>
-        );
-    }
-
     return (
         <section className="bg-asphalt py-20 px-6 md:px-12 border-t border-street-gray/10">
             <div className="container mx-auto max-w-4xl">
@@ -70,7 +17,7 @@ export function DailyDrop() {
                 </div>
 
                 <div className="space-y-8">
-                    {displayDrops.map((drop, index) => (
+                    {[...displayDrops].sort((a, b) => b.day - a.day).map((drop, index) => (
                         <motion.div
                             key={drop.day}
                             initial={{ opacity: 0, y: 20 }}

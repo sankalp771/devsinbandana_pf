@@ -20,8 +20,8 @@ export const drops: DailyDrop[] = [
         day: 2,
         date: "2026-01-02",
         topic: "MediPilot Authentication",
-        description: "Integrated Clerk for secure user authentication in MediPilot. Set up Supabase with Prisma ORM to handle patient data and prescriptions.",
-        stack: ["Clerk", "Supabase", "Prisma"],
+        description: "Integrated Clerk for secure user authentication in MediPilot. Set up Postgres with Prisma ORM to handle patient data and prescriptions.",
+        stack: ["Clerk", "Postgres", "Prisma"],
         commit: "feat: auth setup and database schema init"
     },
     {
@@ -220,9 +220,9 @@ export const drops: DailyDrop[] = [
         day: 27,
         date: "2026-01-27",
         topic: "Persistence Engine & Portal Architecture",
-        description: "Migrated the 'Street Code Chronicles' to a robust Prisma + Supabase backend, enabling permanent storage for the 100-day grind. Deployed a secure administrative 'Drop Portal' and an AI-powered content engine to streamline daily entries, bridging the gap between raw code commits and visual storytelling.",
+        description: "Migrated the 'Street Code Chronicles' to a robust Prisma + Postgres backend, enabling permanent storage for the 100-day grind. Deployed a secure administrative 'Drop Portal' and an AI-powered content engine to streamline daily entries, bridging the gap between raw code commits and visual storytelling.",
         stack: ["DATABASE", "ORM", "MANAGEMENT PORTAL", "AI OPS"],
-        commit: "feat: integrate prisma-supabase persistence and drop management portal"
+        commit: "feat: integrate prisma-postgres persistence and drop management portal"
     },
     {
         day: 28,
