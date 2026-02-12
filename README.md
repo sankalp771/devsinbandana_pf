@@ -1,5 +1,6 @@
 
 DB ERROR OCCURRED // UNDER MAINTAINENCE
+RECORDS WILL BE UPDATED SOON !
 ## 🥷 devsinbandana
 
 > **100 Days. No Cap.**
